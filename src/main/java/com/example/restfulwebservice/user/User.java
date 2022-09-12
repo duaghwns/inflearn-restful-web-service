@@ -11,7 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class User {
 
-    private long id;
+    private Integer id;
     private String name;
     private Date regDate;
 

@@ -1,12 +1,15 @@
 package com.example.restfulwebservice.user;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class UserDaoService {
     private static List<User> users = new ArrayList<>();
-    private static long usersCount = 0;
+    private static Integer usersCount = 0;
 
     static {
         users.add(new User(++usersCount, "hojoon", new Date()));
@@ -28,6 +31,9 @@ public class UserDaoService {
     }
 
     public void save(User user){
+        if (user.getId() == null) {
+            user.setId(++usersCount);
+        }
         users.add(user);
     }
 
