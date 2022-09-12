@@ -1,4 +1,4 @@
-package com.example.restfulwebservice.controller;
+package com.example.restfulwebservice.hello;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,9 +9,6 @@ public class HelloController {
 
     @GetMapping("/")
     public String Hello(){
-        //GET
-
-
         return "index";
     }
 
@@ -29,6 +26,11 @@ public class HelloController {
     @GetMapping("path-variable/{name}")
     public HelloWorldBean helloWorldBean(@PathVariable String name){
         return new HelloWorldBean(String.format("Hello world, %s", name));
+    }
+
+    @GetMapping("board/{boardNo}")
+    public String boardNo(@PathVariable int boardNo){
+        return "board : " + boardNo;
     }
 
 
