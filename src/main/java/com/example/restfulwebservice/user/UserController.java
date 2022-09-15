@@ -2,6 +2,7 @@ package com.example.restfulwebservice.user;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -25,5 +26,11 @@ public class UserController {
         return service.findOne(id);
     }
 
+    @PostMapping("users/{id}")
+    public String saveUser(@PathVariable int id){
+        User user = service.findOne(id);
+        service.save(user);
+        return "";
+    }
 
 }
