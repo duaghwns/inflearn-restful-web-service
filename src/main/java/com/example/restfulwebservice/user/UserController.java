@@ -27,10 +27,10 @@ public class UserController {
     }
 
     @PostMapping("users/{id}")
-    public String saveUser(@PathVariable int id){
+    public User saveUser(@PathVariable int id){
         User user = service.findOne(id);
         service.save(user);
-        return "";
+        return service.findOne(id);
     }
 
 }
