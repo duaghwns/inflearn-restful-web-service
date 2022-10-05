@@ -3,22 +3,31 @@ package com.example.restfulwebservice.lotto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Max;
 import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
 public class Lotto {
-    private long hoicha;
-    private long totSellamnt;
+
+    private Long hoicha;
+    private Long totSellamnt;
     private String returnValue;
     private LocalDate drwNoDate;
-    private int drwNo1;
-    private int drwNo2;
-    private int drwNo3;
-    private int drwNo4;
-    private int drwNo5;
-    private int drwNo6;
-    private int bnusNo;
-    private int firstPrzwnerCo;
-    private long firstAccumamnt;
+    @Max(2)
+    private Integer drwNo1;
+    @Max(2)
+    private Integer drwNo2;
+    @Max(2)
+    private Integer drwNo3;
+    @Max(2)
+    private Integer drwNo4;
+    @Max(2)
+    private Integer drwNo5;
+    @Max(2)
+    private Integer drwNo6;
+    @Max(2)
+    private Integer bnusNo;
+    private Integer firstPrzwnerCo;
+    private Long firstAccumamnt;
 }
