@@ -1,8 +1,12 @@
 package com.example.restfulwebservice.user;
 
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -23,13 +27,18 @@ public class UserController {
     }
 
     @GetMapping("users/{id}")
-    public User retrieveUser(@PathVariable int id){
+    public EntityModel<User> retrieveUser(@PathVariable int id){
         User user = service.findOne(id);
 
-        if (user == null) {
-            throw new UserNotFoundException(String.format("ID[%s] not found", id));
-        }
-        return user;
+        if (user == null) throw new UserNotFoundException(String.format("ID[%s] not found", id));
+
+        // 접근제한자가 protected 로 되어있기 때문에 사용할 수 없다.
+        // EntityModel<User> model = new EntityModel<>(user);
+        EntityModel<User> model = EntityModel.of(user);
+
+        model.add(linkTo(methodOn(this.getClass()).retrieveAllUsers()).withSelfRel());
+
+        return model;
     }
 
     @PostMapping("/users")
