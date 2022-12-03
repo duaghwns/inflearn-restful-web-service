@@ -36,7 +36,7 @@ public class UserController {
         // EntityModel<User> model = new EntityModel<>(user);
         EntityModel<User> model = EntityModel.of(user);
 
-        model.add(linkTo(methodOn(this.getClass()).retrieveAllUsers()).withSelfRel());
+        model.add(linkTo(methodOn(this.getClass()).retrieveAllUsers()).withRel("all-users"));
 
         return model;
     }
