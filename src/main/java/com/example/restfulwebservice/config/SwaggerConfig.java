@@ -1,0 +1,23 @@
+package com.example.restfulwebservice.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
+
+@Configuration
+@EnableSwagger2
+// Enable Swagger
+public class SwaggerConfig {
+
+    @Bean
+    public Docket api(){
+        return new Docket(DocumentationType.SWAGGER_2);
+    }
+    // Swagger2
+    // ALI the paths
+    // All the apis
+}
