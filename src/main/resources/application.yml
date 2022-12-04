@@ -6,15 +6,20 @@ logging:
     org.springframework: DEBUG
 
 spring:
+  security:
+    user:
+      name: username
+      password: passw0rd
   messages:
     basename: messages
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
 
-# hal 브라우저랑 actuator 라이브러리는 버전이 안맞아서 실습을 못해봄
+# hal 브라우저랑 actuator 라이브러리는 버전이 안맞아서 실습을 못해가
 #management:
 #  endpoints:
 #    web:
 #      exposure:
 #        include: "*"
+
