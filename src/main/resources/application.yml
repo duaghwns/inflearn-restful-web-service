@@ -6,15 +6,23 @@ logging:
     org.springframework: DEBUG
 
 spring:
-  security:
-    user:
-      name: username
-      password: passw0rd
+#  security:
+#    user:
+#      name: username
+#      password: passw0rd
+  jpa:
+    show-sql: true
   messages:
     basename: messages
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
 
 # hal 브라우저랑 actuator 라이브러리는 버전이 안맞아서 실습을 못해가
 #management:
