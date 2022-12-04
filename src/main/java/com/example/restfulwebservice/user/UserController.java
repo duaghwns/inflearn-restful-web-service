@@ -37,7 +37,7 @@ public class UserController {
         EntityModel<User> model = EntityModel.of(user);
 
         model.add(linkTo(methodOn(this.getClass()).retrieveAllUsers()).withRel("all-users"));
-
+        model.add(linkTo(methodOn(this.getClass()).saveUser(user)).withRel("save-user"));
         return model;
     }
 
