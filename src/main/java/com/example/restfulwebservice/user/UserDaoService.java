@@ -2,6 +2,7 @@ package com.example.restfulwebservice.user;
 
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -13,9 +14,9 @@ public class UserDaoService {
     private static Integer usersCount = 0;
 
     static {
-        users.add(new User(++usersCount, "hojoon", new Date(),"pass1","999999-9999999"));
-        users.add(new User(++usersCount, "joonho", new Date(),"pass2","888888-8888888"));
-        users.add(new User(++usersCount, "sangjin", new Date(), "pass3", "777777-7777777"));
+        users.add(new User(++usersCount, "hojoon", LocalDateTime.now() ,"pass1","999999-9999999"));
+        users.add(new User(++usersCount, "joonho", LocalDateTime.now(),"pass2","888888-8888888"));
+        users.add(new User(++usersCount, "sangjin", LocalDateTime.now(), "pass3", "777777-7777777"));
     }
 
     public List<User> findAll(){
