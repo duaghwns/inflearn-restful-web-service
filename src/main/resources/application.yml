@@ -23,6 +23,9 @@ spring:
       enabled: true
   datasource:
     url: jdbc:h2:mem:testdb
+    hikari:
+      username: sa
+      password:
 
 # hal 브라우저랑 actuator 라이브러리는 버전이 안맞아서 실습을 못해가
 #management:
